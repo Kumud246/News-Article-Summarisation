@@ -42,21 +42,37 @@ const SignInForm = () => {
     }
  
     return (
-      <form onSubmit={submitHandler}>  
-        <div className={styles.container}>   
-            <label>Email : </label>   
-            <input type="text" placeholder="Enter Email" name="email" required
-            value={email} onChange={onEmailChange}  />  
-
-            <label>Password : </label>   
-            <input type="password" placeholder="Enter Password" name="password" required 
-            value={password} onChange={onPasswordChange} />  
-
-            <button type="submit">Sign In</button>    
-            <br></br>
-            {submitError && <p style={{color: "red"}}>Wrong Credentials</p>}  
-        </div>   
-    </form> 
+        <form onSubmit={submitHandler}>
+        <h3>Sign In</h3>
+        <br></br>
+        <div className="mb-3">
+          <label>Email address</label>
+          <input
+            type="email"
+            className="form-control"
+            placeholder="Enter email"
+            value={email}
+            onChange={onEmailChange}
+          />
+        </div>
+        <div className="mb-3">
+          <label>Password</label>
+          <input
+            type="password"
+            className="form-control"
+            placeholder="Enter password"
+            value={password}
+            onChange={onPasswordChange}
+          />
+        </div>
+        <div className="d-grid">
+          <button type="submit" className="btn btn-primary">
+            Submit
+          </button>
+        </div>
+        <br></br>
+        {submitError && <p style={{color: "red"}}>Wrong Credentials</p>} 
+      </form>
     );
 }
 

@@ -1,6 +1,10 @@
+import styles from './About.module.css'
+
 const About = () => {
     return <>
-        <h1>About News Article Summarisation</h1>
+        <div className={styles.container}>
+            <h1>About News Article Summarisation</h1>
+        </div>
     </>
 }
 

@@ -7,6 +7,7 @@ import Navbar from './containers/Navbar/Navbar';
 import About from './containers/About/About';
 import ArticleURLForm from './containers/ArticleURLForm/ArticleURLForm';
 import ArticleSummary from './containers/ArticleSummary/ArticleSummary';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const location = useLocation();

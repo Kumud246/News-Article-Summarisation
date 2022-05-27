@@ -49,25 +49,49 @@ const SignUpForm = () => {
     }
 
     return (
-      <form onSubmit={submitHandler}>  
-        <div className={styles.container}>   
-            <label>Email : </label>   
-            <input type="text" placeholder="Enter Email" name="email" required
-            value={email} onChange={onEmailChange} />  
-
-            <label>Username : </label>   
-            <input type="text" placeholder="Enter Username" name="username" required 
-            value={username} onChange={onUserNameChange}/>  
-
-            <label>Password : </label>   
-            <input type="password" placeholder="Enter Password" name="password" required
-            value={password} onChange={onPasswordChange} />  
-
-            <button type="submit">Sign Up</button>    
-            <br></br>
-            {submitError && <p style={{color: "red"}}>User with this email already exists</p>}
-        </div>   
-  </form> 
+        <form onSubmit={submitHandler}>
+        <h3>Sign Up</h3>
+        <div className="mb-3">
+          <label>Name</label>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Name"
+            value={username}
+            onChange={onUserNameChange}
+          />
+        </div>
+        <div className="mb-3">
+          <label>Email address</label>
+          <input
+            type="email"
+            className="form-control"
+            placeholder="Enter email"
+            value={email}
+            onChange={onEmailChange}
+          />
+        </div>
+        <div className="mb-3">
+          <label>Password</label>
+          <input
+            type="password"
+            className="form-control"
+            placeholder="Enter password"
+            value={password}
+            onChange={onPasswordChange}
+          />
+        </div>
+        <div className="d-grid">
+          <button type="submit" className="btn btn-primary">
+            Sign Up
+          </button>
+        </div>
+        <p className="forgot-password text-right">
+          Already registered <a href="/sign-in">sign in?</a>
+        </p>
+        <br></br>
+        {submitError && <p style={{color: "red"}}>User with this email already exists</p>}
+      </form>
       );
 }
 
