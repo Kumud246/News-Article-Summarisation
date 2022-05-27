@@ -6,6 +6,7 @@ const cors = require("cors");
 const { v4: uuidv4 } = require('uuid');
 var jwt = require('jsonwebtoken');
 var jwt_secret = "my secret";
+const {spawn} = require('child_process');
 
 const { MongoClient } = require('mongodb');
 const uri = "mongodb+srv://KumudSharma:VwbD0xUqFIaqhObm@cluster0.r10qm.mongodb.net/?retryWrites=true&w=majority";
@@ -29,7 +30,20 @@ client.connect().then(function (data) {
 })
 
 app.get('/', (req, res) => {
-  res.send('Hello World');
+    var dataToSend;
+    // spawn new child process to call the python script
+    const python = spawn('python', ['ml.py']);
+    // collect data from script
+    python.stdout.on('data', function (data) {
+     console.log('Pipe data from python script ...');
+     dataToSend = data.toString();
+    });
+    // in close event we are sure that stream from child process is closed
+    python.on('close', (code) => {
+    console.log(`child process close all stdio with code ${code}`);
+    // send data to browser
+    res.send(dataToSend)
+    });
 });
 
 //SignUp
@@ -138,5 +152,10 @@ app.post('/', (req, res) => {
 })
 
 app.post('/getArticleSummary', (req, res) => {
-  
+    const pythonProcess = spawn('python',["C:\Users\Dell\PycharmProjects\newsArticleSummarisation\script.py", "Hello world"]);
+    
+    pythonProcess.stdout.on('data', (data) => {
+        // Do something with the data returned from python script
+        console.log(data, "hey");
+    });
 })
