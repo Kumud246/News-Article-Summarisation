@@ -7,6 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1maz3Sm5zPwynUyxKMuj_Z9-OrFoNpeda
 """
 
+import sys
 import numpy as np
 import pandas as pd
 import pickle
@@ -54,6 +55,8 @@ The thief got worried as he had seen that the family was large and worked well t
 He climbed down safely when they were not looking and ran for his life. But, he left behind the bundle of stolen jewels and money which dropped into Mike’s lap. Mike opened it and jumped with joy when he saw the contents. The family gathered all their belongings and returned to the village. There was great excitement when they told everyone how they got rich.
 Morris thought that the tree was miraculous and this was a nice and quick way to earn some money. He ordered his family to pack some clothes and they set off as if on a journey. They also stopped under the same tree and Morris started commanding everyone as Mike had done. But no one in his family was willing to obey his orders. Being a rich family, they were used to having servants all around. So, the one who went to the river to fetch water enjoyed a nice bath. The one who went to get wood for fire went off to sleep. Morris’s wife said ” Everything is ready but what shall we eat ?” Morris raised his hands and said, ” Don’t worry. He is watching all of this from above. He will help us.”
 As soon as he finished saying, the thief jumped down from the tree with a knife in hand. Seeing him, everyone started running around to save their lives. The thief stole everything they had and Morris and his family had to return to the village empty handed, having lost all their valuables that they had taken with them."""
+
+text= sys.argv[1]
 
 sentences = sent_tokenize(text) 
 total_documents = len(sentences)

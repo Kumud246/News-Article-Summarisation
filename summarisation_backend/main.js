@@ -30,20 +30,22 @@ client.connect().then(function (data) {
 })
 
 app.get('/', (req, res) => {
-    var dataToSend;
-    // spawn new child process to call the python script
-    const python = spawn('python', ['ml.py']);
-    // collect data from script
-    python.stdout.on('data', function (data) {
-     console.log('Pipe data from python script ...');
-     dataToSend = data.toString();
-    });
-    // in close event we are sure that stream from child process is closed
-    python.on('close', (code) => {
-    console.log(`child process close all stdio with code ${code}`);
-    // send data to browser
-    res.send(dataToSend)
-    });
+    // var dataToSend;
+    // // spawn new child process to call the python script
+    // const python = spawn('python', ['ml.py']);
+    // // collect data from script
+    // python.stdout.on('data', function (data) {
+    //  console.log('Pipe data from python script ...');
+    //  dataToSend = data.toString();
+    // });
+    // // in close event we are sure that stream from child process is closed
+    // python.on('close', (code) => {
+    // console.log(`child process close all stdio with code ${code}`);
+    // // send data to browser
+    // res.send(dataToSend)
+    // });
+
+    res.send("Hello World")
 });
 
 //SignUp
@@ -152,10 +154,41 @@ app.post('/', (req, res) => {
 })
 
 app.post('/getArticleSummary', (req, res) => {
-    const pythonProcess = spawn('python',["C:\Users\Dell\PycharmProjects\newsArticleSummarisation\script.py", "Hello world"]);
-    
-    pythonProcess.stdout.on('data', (data) => {
-        // Do something with the data returned from python script
-        console.log(data, "hey");
-    });
+    const body = req.body;
+
+    //res.json({content: body.content});
+    const status_code = body.status_code;
+    if(status_code === 200) {
+        const urlToImage = body.urlToImage;
+        const author = body.author;
+        const title = body.title;
+        const publishedAt = body.publishedAt;
+        
+        const content = body.content;
+        
+        var dataToSend;
+        // spawn new child process to call the python script
+        const python = spawn('python', ['ml.py', content]);
+        // collect data from script
+        python.stdout.on('data', function (data) {
+        console.log('Pipe data from python script ...');
+        dataToSend = data.toString();
+        });
+        // in close event we are sure that stream from child process is closed
+        python.on('close', (code) => {
+        console.log(`child process close all stdio with code ${code}`);
+        // send data to browser
+        res.json({
+            status: "success",
+            urlToImage: urlToImage,
+            author: author,
+            title: title,
+            publishedAt: publishedAt,
+            content: dataToSend,
+            });
+        });
+    }
+    else {
+        res.json({ status: "failure" })
+    }
 })

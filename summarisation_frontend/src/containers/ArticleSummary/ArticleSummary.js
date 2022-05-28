@@ -1,8 +1,9 @@
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const ArticleSummary = () => {
     const navigate = useNavigate();
+    const location = useLocation();
 
     useEffect(() => {
         const requestOptions = {
@@ -21,11 +22,31 @@ const ArticleSummary = () => {
     })
     
     return <>
+        {console.log(location.state)}
         <h1>Article Summary</h1>
         <hr/>
-        <div>
-            Article Summary will be here.
-        </div>
+            {location.state && 
+            <div>
+            {/* <img src={location.state.urlToImage} />
+            <br></br> */}
+
+            <h2>Article Title - {location.state.title}</h2>
+
+            <h3>Author - {location.state.author.map((author, index) => {
+                if(index !== location.state.author.length - 1) {
+                    return `${author}, `
+                }
+                else {
+                    return author;
+                }
+            })}</h3>
+
+            <h4>Published At - {location.state.publishedAt}</h4>
+            <br/>
+            <h3>Summary</h3>
+            <p>{location.state.content}</p>
+            </div>
+            }
     </>
 }
 
