@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Playfair+Display:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Neucha&family=Philosopher:wght@700&display=swap');
+
+.container {
+    background-image: none;
+    background-color: white;
+}
+
+.heading {
+	text-align: center;
+	font-family: 'Libre Baskerville', serif;
+	font-size:40px;
+}
+
+.titleHeading {
+    margin-left: 10px;
+	font-family: 'CNN,Helvetica Neue,Helvetica,Arial,Utkal,sans-serif';
+	font-size:30px;
+    font-weight: 550;
+    margin-bottom: 0px;
+}
+
+.summaryHeading {
+    text-align: center;
+    font-family: 'Libre Baskerville', serif;
+	font-size: 20px;
+    font-weight: 700px;
+}
+
+.authorClass {
+    margin-left: 10px;
+    font-size: 1.06667rem;
+    font-family: 'CNN,Helvetica Neue,Helvetica,Arial,Utkal,sans-serif';
+    color: #737373;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.publishedAt {
+    margin-left: 10px;
+    color: #737373;
+    font-family: CNN,Helvetica Neue,Helvetica,Arial,Utkal,sans-serif;
+    font-weight: 400;
+    font-size: 1.06667rem;
+    line-height: 1.5;
+}
+
+.content {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: CNN,Helvetica Neue,Helvetica,Arial,Utkal,sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 1.66667;
+    text-align: justify;
+}
+
+.articleImage {
+    text-align: center;
+    margin: auto;
+}

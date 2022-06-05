@@ -6,7 +6,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* background-image: url(./images/text-summarization-pages.jpg); */
-  background-size: cover;
+  background-image:  linear-gradient(
+		rgba(0, 0, 0, 0.5),
+		rgba(0, 0, 0, 0.5)
+	  ), url('../src/images/text-summarization-pages.jpg');
+    color: rgb(250, 177, 42);
+
 }
 
 code {

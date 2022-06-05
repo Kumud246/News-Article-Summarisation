@@ -1,5 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import styles from './ArticleSummary.module.css'
 
 const ArticleSummary = () => {
     const navigate = useNavigate();
@@ -21,33 +22,50 @@ const ArticleSummary = () => {
         });
     })
     
-    return <>
-        {console.log(location.state)}
-        <h1>Article Summary</h1>
-        <hr/>
+    return <div className={styles.container}>
+        <br/>
+        <p className={styles.heading}>
+            Article Summary
+        </p>
+        
             {location.state && 
             <div>
-            {/* <img src={location.state.urlToImage} />
-            <br></br> */}
 
-            <h2>Article Title - {location.state.title}</h2>
+            <p className={styles.titleHeading}>
+                {location.state.title}
+            </p>
 
-            <h3>Author - {location.state.author.map((author, index) => {
-                if(index !== location.state.author.length - 1) {
-                    return `${author}, `
-                }
-                else {
-                    return author;
-                }
-            })}</h3>
-
-            <h4>Published At - {location.state.publishedAt}</h4>
+            <span className={styles.authorClass}>
+                <span>By </span>
+                <span>{location.state.author.map((author, index) => {
+                    if(index !== location.state.author.length - 1) {
+                        return `${author}, `
+                    }
+                    else {
+                        return author;
+                    }
+                })}
+                </span>
+            </span>
             <br/>
-            <h3>Summary</h3>
-            <p>{location.state.content}</p>
+
+            <span className={styles.publishedAt}>
+                <span>Published At - </span>
+                <span>{location.state.publishedAt}</span>
+            </span>
+            <br/><br/>
+            
+            <div className={styles.articleImage}>
+                <img  src={location.state.urlToImage} alt="Image for article" />
             </div>
+            <br></br>
+
+            <p className={styles.content} >{location.state.content}</p>
+
+            </div>
+
             }
-    </>
+    </div>
 }
 
 export default ArticleSummary;

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import styles from './ArtilcleURLForm.module.css'
 
 const ArticleURLForm = () => {
     const navigate = useNavigate();
@@ -85,13 +86,30 @@ const ArticleURLForm = () => {
     }
 
     return <>
-        <h2>Paste the URL of the news article</h2>
-        <input type="text" placeholder="Enter URL" value={urlValue} onChange={handleUrlChange} />
-        <br/> <br/>
-        <button onClick={submitHandler}>Submit</button>
+        <br/>
+        <p className={styles.heading}>
+            Paste the URL of the news article
+        </p>
+        <br/>
+
+        <div className={styles.content}>
+        <input
+            type="text"
+            className="form-control"
+            placeholder="Enter URL"
+            value={urlValue}
+            onChange={handleUrlChange}
+          />
+        <br/> 
+        <div className="d-grid">
+            <button type="submit" className="btn btn-primary" onClick={submitHandler}>
+                Submit
+            </button>
+        </div>
         <br/>
         {error && <p style={{color: "red"}}>There was some error in getting summary</p>}
-        {loading && <p style={{color: "green"}}>Getting your Summary prepared</p>}
+        {loading && <div className={styles.loading}>Loading&#8230;</div>}
+        </div>
     </>
 }
 

@@ -3,7 +3,9 @@ import styles from './About.module.css'
 const About = () => {
     return <>
         <div className={styles.container}>
-            <h1>About News Article Summarisation</h1>
+            <p className={styles.heading}>
+                About News Article Summarisation
+            </p>
         </div>
     </>
 }

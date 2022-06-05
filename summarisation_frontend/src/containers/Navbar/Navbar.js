@@ -14,18 +14,18 @@ const Navbar = () => {
         <Nav>
           <Bars />
 
-          <NavMenu>
-          <NavLink to='/' activeStyle>
+          <NavMenu style={{background: "#fee36e"}}>
+          <NavLink to='/' activeStyle >
               Home
             </NavLink>
-            <NavLink to='/about' activeStyle>
+            <NavLink to='/about' activeStyle >
               About
             </NavLink>
-            <NavLink to='/sign-up' activeStyle>
+            <NavLink to='/sign-up' activeStyle >
               Sign Up
             </NavLink>
           </NavMenu>
-          <NavBtn>
+          <NavBtn style={{background: "#fee36e"}}>
             <NavBtnLink to='/sign-in'>Sign In</NavBtnLink>
           </NavBtn>
         </Nav>

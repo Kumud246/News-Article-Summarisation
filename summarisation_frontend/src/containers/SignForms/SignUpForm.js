@@ -49,8 +49,12 @@ const SignUpForm = () => {
     }
 
     return (
+      <div className={styles.container}>
+      <br/>
+        <p className={styles.heading}>
+          Sign Up
+        </p>
         <form onSubmit={submitHandler}>
-        <h3>Sign Up</h3>
         <div className="mb-3">
           <label>Name</label>
           <input
@@ -86,12 +90,14 @@ const SignUpForm = () => {
             Sign Up
           </button>
         </div>
+        <br/>
         <p className="forgot-password text-right">
           Already registered <a href="/sign-in">sign in?</a>
         </p>
         <br></br>
         {submitError && <p style={{color: "red"}}>User with this email already exists</p>}
       </form>
+      </div>
       );
 }
 

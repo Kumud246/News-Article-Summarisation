@@ -8,13 +8,15 @@ import About from './containers/About/About';
 import ArticleURLForm from './containers/ArticleURLForm/ArticleURLForm';
 import ArticleSummary from './containers/ArticleSummary/ArticleSummary';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import LoggedInNavbar from './containers/Navbar/LoggedInNavbar';
+import './index.css';
 
 function App() {
   const location = useLocation();
 
   return (
     <>
-    {location.pathname !== '/enterURL' && location.pathname !== '/articleSummary' ? <Navbar /> : ""}
+    {location.pathname !== '/enterURL' && location.pathname !== '/articleSummary' ? <Navbar /> : <LoggedInNavbar />}
     <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/sign-in" element={<SignInForm />} />

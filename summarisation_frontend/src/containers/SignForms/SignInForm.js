@@ -42,9 +42,12 @@ const SignInForm = () => {
     }
  
     return (
+      <div className={styles.container}>
+        <br/>
+        <p className={styles.heading}>
+          Sign In
+        </p>
         <form onSubmit={submitHandler}>
-        <h3>Sign In</h3>
-        <br></br>
         <div className="mb-3">
           <label>Email address</label>
           <input
@@ -65,6 +68,7 @@ const SignInForm = () => {
             onChange={onPasswordChange}
           />
         </div>
+        <br/>
         <div className="d-grid">
           <button type="submit" className="btn btn-primary">
             Submit
@@ -73,6 +77,7 @@ const SignInForm = () => {
         <br></br>
         {submitError && <p style={{color: "red"}}>Wrong Credentials</p>} 
       </form>
+      </div>
     );
 }
 
