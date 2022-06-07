@@ -35,7 +35,7 @@ const ArticleURLForm = () => {
             headers: {
                 'content-type': 'application/json',
                 'X-RapidAPI-Host': 'news-article-extraction.p.rapidapi.com',
-                'X-RapidAPI-Key': 'a99c9a49f7msh8a39d45d6090ea7p10708bjsn3c9a159d3086'
+                'X-RapidAPI-Key': 'b04307597bmsh29191abc0188314p157ff9jsn647fed755141'
             },
             body: `{"url": "${urlValue}"}`
         };
